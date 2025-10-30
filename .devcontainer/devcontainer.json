@@ -1,10 +1,15 @@
 {
-  "name": "Kali-Rolling-Everything",
-  "build": { "dockerfile": "Dockerfile" },
-  "hostRequirements": { "cpus": 2, "memory": "8gb", "storage": "32gb" },
+  "name": "Kali Rolling (Runtime Install)",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "hostRequirements": {
+    "cpus": 2,
+    "memory": "8gb",
+    "storage": "32gb"
+  },
   "privileged": true,
   "overrideCommand": false,
   "shutdownAction": "stopContainer",
-  "waitFor": "onCreateCommand",
-  "onCreateCommand": "sudo apt update && sudo apt -y install kali-linux-everything"
+  "postCreateCommand": "sudo apt update && sudo apt -y install kali-linux-everything"
 }
