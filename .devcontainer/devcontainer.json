@@ -1,0 +1,10 @@
+{
+  "name": "Kali-Rolling-Everything",
+  "build": { "dockerfile": "Dockerfile" },
+  "hostRequirements": { "cpus": 2, "memory": "8gb", "storage": "32gb" },
+  "privileged": true,
+  "overrideCommand": false,
+  "shutdownAction": "stopContainer",
+  "waitFor": "onCreateCommand",
+  "onCreateCommand": "sudo apt update && sudo apt -y install kali-linux-everything"
+}
